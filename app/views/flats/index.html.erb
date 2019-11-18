@@ -1,0 +1,3 @@
+<% @flats.each do |flat| %>
+ <p> <%= link_to flat.title, flat_path(flat) %>  |  <%= flat.location %> | <%= flat.price %> </p>
+<% end %>
