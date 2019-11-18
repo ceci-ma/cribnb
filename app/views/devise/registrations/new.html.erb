@@ -15,7 +15,11 @@
     <%= f.input :dob,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "Date Of Birth" }%>
+                input_html: { autocomplete: "Date Of Birth" },
+                start_year: Date.current.year,
+                end_year: 1930
+
+                %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
