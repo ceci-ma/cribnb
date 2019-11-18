@@ -35,7 +35,7 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat.delete
-    redirect_to root_path
+    redirect_to flats_path
   end
 
   private
@@ -45,10 +45,9 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :location, :price)
+    params.require(:flat).permit(:title, :description, :location, :price, photos: [])
   end
 end
-
 
 
 
