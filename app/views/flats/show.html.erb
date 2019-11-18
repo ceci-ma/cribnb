@@ -1,0 +1,17 @@
+<h1> <%= @flat.title %></h1>
+<p><%= @flat.description %></p>
+<p><%= @flat.location %></p>
+<p><%= @flat.price %></p>
+<% if @flat.photos.attached? %>
+  <% @flat.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
+  <% end %>
+<% else %>
+  <img src="https://img.icons8.com/cotton/2x/home--v2.png" alt="house icon">
+<% end %>
+
+<br>
+
+ <%= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
+ <%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
+<%= link_to 'Back', root_path, class: "btn btn-primary" %>
