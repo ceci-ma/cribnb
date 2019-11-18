@@ -28,3 +28,4 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
