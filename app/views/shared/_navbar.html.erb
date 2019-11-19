@@ -1,6 +1,23 @@
+<% if current_page?(root_path) %>
+      <style>
+        .navbar-lewagon {
+          background: transparent !important;
+          position: absolute !important;
+          width: 100% !important;
+
+        }
+        .navbar-lewagon a {
+            color: white !important;
+            text-decoration: none;
+        }
+
+      </style>
+    <% end %>
+
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "https://static.wixstatic.com/media/ae0e5a_1e065c211a74414ebd6e8bcac46b4f27~mv2_d_1566_1566_s_2.png/v1/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01/logo-final.webp" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
