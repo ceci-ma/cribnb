@@ -1,10 +1,100 @@
+
+  <% if @flat.photos.length == 1 %>
+  <div class="photos-container d-flex">
+      <%= cl_image_tag @flat.photos.first.key, width: 1500, height: 400, crop: :fill, class:" first-photo"%>
+  </div>
+
+  <% elsif @flat.photos.length == 2 %>
+    <div class="photos-container d-flex">
+      <div class="row">
+        <div class="col-sm  main-photo">
+          <%= cl_image_tag @flat.photos.first.key, width: 710, height: 400, crop: :fill, class:" first-photo photo"%>
+        </div>
+        <div class="col-sm  other-photos">
+            <%= cl_image_tag @flat.photos.last.key, width: 710, height: 400, crop: :fill, class:"photo"%>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+  <div class="photos-container d-flex">
+    <div class="row">
+      <div class="col-sm main-photo photo ">
+        <%= cl_image_tag @flat.photos.first.key, width: 750, height: 400, crop: :fill, class:" first-photo photo"%>
+      </div>
+      <div class="col-sm d-flex flex-wrap other-photos photo">
+        <% @flat.photos.each do |photo| %>
+        <%  unless photo == @flat.photos.first %>
+          <%= cl_image_tag photo.key, width: 335, height: 400, crop: :fill, class:"photos"%>
+          <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+
+<div class="container d-flex">
+  <div class="content m-3">
+    <h1> <%= @flat.title %></h1>
+    <p><%= @flat.location %></p>
+    <div class="main-info">
+      <p>2 guests | 1 bedroom | 1 bed | 1 bathroom </p>
+      <div class="home-info border-bottom border-top">
+        <p><%= @flat.description %></p>
+      </div>
+    </div>
+  </div>
+  <div class="booking-info m-3">
+    <div class="form-container m-3 ">
+      <form class="m-3">
+        <p><strong>£<%= @flat.price %></strong> per night</p>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCheckin">Check-in</label>
+            <input type="date" class="form-control" id="inputCheckin">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputCheckout">Check-out</label>
+            <input type="date" class="form-control" id="inputCheckout">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputState">Guests</label>
+          <select id="inputGuests" class="form-control">
+            <option selected>Choose...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-between border-bottom ">
+          <% nights = 5 %>
+          <p>£<%= @flat.price %> x <%= nights %> nights </p>
+          <p>£ <%= @flat.price * nights %></p>
+        </div>
+
+
+
+      <button type="submit" class="btn btn-ghost">Book now</button>
+    </form>
+  </div>
+  </div>
+</div>
+
+
+<br>
+
+ <%#= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
+ <%#= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
+<%#= link_to 'Back', root_path, class: "btn btn-primary" %>
+
+
 <div class="container">
-  <% if @flat.photos.attached? %>
     <% @flat.photos.each do |photo| %>
     <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
-  <% end %>
-  <% else %>
-    <img src="https://img.icons8.com/cotton/2x/home--v2.png" alt="house icon">
   <% end %>
 </div>
 
@@ -19,3 +109,4 @@
 <%= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
 <%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
 <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+
