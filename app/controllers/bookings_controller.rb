@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
 
   def create
     # To review
+
     @booking = Booking.new(booking_params)
     @flat = Flat.find(params[:flat_id])
     @booking.user = current_user

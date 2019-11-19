@@ -1,3 +1,4 @@
+
   <% if @flat.photos.length == 1 %>
   <div class="photos-container d-flex">
       <%= cl_image_tag @flat.photos.first.key, width: 1500, height: 400, crop: :fill, class:" first-photo"%>
@@ -89,4 +90,23 @@
  <%#= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
  <%#= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
 <%#= link_to 'Back', root_path, class: "btn btn-primary" %>
+
+
+<div class="container">
+    <% @flat.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
+  <% end %>
+</div>
+
+<h1> <%= @flat.title %></h1>
+<p><%= @flat.description %></p>
+<p><%= @flat.location %></p>
+<p><%= @flat.price %></p>
+
+
+<br>
+
+<%= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
+<%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
+<%= link_to 'Back', root_path, class: "btn btn-primary" %>
 
