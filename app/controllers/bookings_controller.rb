@@ -7,23 +7,22 @@ class BookingsController < ApplicationController
 
   def show
     # id required in the params
-    @booking = Booking.new(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def new
     # as per the table a booking needs 2 foreign keys (flat and user)
-#     @booking = Booking.new
-#     @flat = Flat.find(params[:flat_id])
-#     @user = User.find(params[:user_id])
+     @booking = Booking.new
+     @flat = Flat.find(params[:flat_id])
+     # @user = User.find(params[:user_id])
   end
 
   def create
     # To review
     @booking = Booking.new(booking_params)
     @flat = Flat.find(params[:flat_id])
-    @user = User.find(params[:user_id])
+    @booking.user = current_user
     @booking.flat = @flat
-    @booking.user = @user
     if @booking.save
       redirect_to flats_path
     else
@@ -38,8 +37,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :price, :flat_id, :user_id )
+    params.require(:booking).permit(:start_date, :end_date, :price, :flat_id, :user_id )
   end
-
 
 end
