@@ -23,7 +23,9 @@
       </div>
       <div class="col-sm d-flex flex-wrap other-photos photo">
         <% @flat.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, width: 335, height: 200, crop: :fill, class:"photos"%>
+        <%  unless photo == @flat.photos.first %>
+          <%= cl_image_tag photo.key, width: 335, height: 400, crop: :fill, class:"photos"%>
+          <% end %>
           <% end %>
       </div>
     </div>
