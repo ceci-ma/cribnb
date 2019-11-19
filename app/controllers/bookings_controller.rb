@@ -12,9 +12,9 @@ class BookingsController < ApplicationController
 
   def new
     # as per the table a booking needs 2 foreign keys (flat and user)
-    @booking = Booking.new
-    @flat = Flat.find(params[:flat_id])
-    @user = User.find(params[:user_id])
+#     @booking = Booking.new
+#     @flat = Flat.find(params[:flat_id])
+#     @user = User.find(params[:user_id])
   end
 
   def create
