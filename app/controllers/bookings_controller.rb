@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
 
   def show
     # id required in the params
-    @booking = Booking.find(params[:id])
+    # @booking = Booking.find(params[:id])
   end
 
   def new
