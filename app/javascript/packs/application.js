@@ -4,3 +4,5 @@ import "bootstrap";
 
 loadDynamicBannerText();
 initUpdateNavbarOnScroll();
+// initAutocomplete();
+
