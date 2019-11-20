@@ -34,7 +34,8 @@ class FlatsController < ApplicationController
   end
 
   def destroy
-    @flat.delete
+    # console.log("abc")
+    @flat.destroy
     redirect_to flats_path
   end
 
