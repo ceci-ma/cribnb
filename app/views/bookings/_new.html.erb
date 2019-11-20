@@ -1,6 +1,6 @@
 <div class="booking-info m-3">
   <div class="form-container m-3 p-4">
-    <p><strong>£<%= @flat.price %></strong> per night</p>
+    <h3>Book it now</h3>
     <%= simple_form_for [flat, booking] do |f| %>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -17,7 +17,7 @@
 <!--         <% nights = 5 %>
         <p>£<%= @flat.price %> x <%= nights %> nights </p>
         <p>£ <%= @new_price = @flat.price * nights %></p> -->
-        <p>£<%= @flat.price %> per night </p>
+        <p><strong>£<%= @flat.price %></strong> per night</p>
       </div>
         <%= f.button :submit, class: "btn btn-ghost" %>
     <% end %>
