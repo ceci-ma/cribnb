@@ -1,4 +1,4 @@
-
+<% if @flat.photos.first %>
   <% if @flat.photos.length == 1 %>
   <div class="photos-container d-flex">
       <%= cl_image_tag @flat.photos.first.key, width: 1500, height: 400, crop: :fill, class:" first-photo"%>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <% end %>
-
+<% end %>
 
 
 <div class="container d-flex">
