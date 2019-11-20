@@ -16,12 +16,11 @@
 
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-   <!--  <p class="notice"><%= notice %></p> -->
-   <!--  <p class="alert"><%= alert %></p> -->
     <%= yield %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'sweet_alert' %>
+    <%= javascript_pack_tag 'places' %>
   </body>
 </html>
