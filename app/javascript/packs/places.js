@@ -17,6 +17,6 @@ const initAutocompleteSearch = () => {
   }
 };
 
-initAutocompleteSearch();
+initAutocomplete();
 
 
