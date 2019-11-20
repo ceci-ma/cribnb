@@ -2,7 +2,7 @@ class FlatsController < ApplicationController
   before_action :find_flat, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search][:location].present?
+    if params[:search].present?
       @flats = Flat.where("location ILIKE ?", "%#{params[:search][:location]}%")
     else
       @flats = Flat.all
