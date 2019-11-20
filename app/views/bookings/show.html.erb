@@ -3,12 +3,13 @@
 <div class="row">
 
   <div class="details col-6 " style="height: 500px" >
-     <div class="container border-bottom " style="height: 180px">
+     <div class="container border-bottom " style="height: 200px">
       <h1></h1>
       <p><strong>Name: </strong> <%= @booking.flat.user.first_name %></p>
       <p><strong>Last Name:</strong> <%= @booking.flat.user.last_name %></p>
       <p><strong>Start date:</strong> <%= @booking.start_date %> </p>
       <p><strong>End date:</strong> <%= @booking.end_date %> </p>
+      <i class="fas fa-users"></i><span><strong></strong> x <%= @booking.guest %></span>
      </div>
      <div class="container " style="height: 279px">
         <br>
