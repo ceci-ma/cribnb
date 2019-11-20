@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+
     # id required in the params
     # @booking = Booking.find(params[:id])
   end
@@ -19,7 +20,6 @@ class BookingsController < ApplicationController
 
   def create
     # To review
-
     @booking = Booking.new(booking_params)
     @flat = Flat.find(params[:flat_id])
     @booking.user = current_user
