@@ -1,4 +1,4 @@
-
+<% if @flat.photos.first %>
   <% if @flat.photos.length == 1 %>
   <div class="photos-container d-flex">
       <%= cl_image_tag @flat.photos.first.key, width: 1500, height: 400, crop: :fill, class:" first-photo"%>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <% end %>
-
+<% end %>
 
 
 <div class="container d-flex">
@@ -46,42 +46,7 @@
       </div>
     </div>
   </div>
-  <div class="booking-info m-3">
-    <div class="form-container m-3 ">
-      <form class="m-3">
-        <p><strong>£<%= @flat.price %></strong> per night</p>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCheckin">Check-in</label>
-            <input type="date" class="form-control" id="inputCheckin">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputCheckout">Check-out</label>
-            <input type="date" class="form-control" id="inputCheckout">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputState">Guests</label>
-          <select id="inputGuests" class="form-control">
-            <option selected>Choose...</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-        </div>
-        <div class="d-flex justify-content-between border-bottom ">
-          <% nights = 5 %>
-          <p>£<%= @flat.price %> x <%= nights %> nights </p>
-          <p>£ <%= @flat.price * nights %></p>
-        </div>
-
-
-
-      <button type="submit" class="btn btn-ghost">Book now</button>
-    </form>
-  </div>
-  </div>
+  <div> <%= render "bookings/new", flat: @flat, booking: @booking %></div>
 </div>
 
  <%#= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>

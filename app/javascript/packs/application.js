@@ -1,6 +1,6 @@
-import { loadDynamicBannerText } from './banner'
-import { initUpdateNavbarOnScroll } from './navbar'
+import { loadDynamicBannerText } from './components/banner'
 import "bootstrap";
 
 loadDynamicBannerText();
-initUpdateNavbarOnScroll();
+// initAutocomplete();
+
