@@ -11,12 +11,12 @@ initAutocomplete();
 
 
 const initAutocompleteSearch = () => {
-  const searchInput = document.getElementById('inputLocation');
+  const searchInput = document.getElementById('search_location');
   if (searchInput) {
     places({ container: searchInput });
   }
 };
 
-initAutocomplete();
+initAutocompleteSearch();
 
 
