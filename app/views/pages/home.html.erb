@@ -1,7 +1,7 @@
 <div class="home-banner">
   <div class="form-container m-3 ">
     <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
-      <h2>Book <span id="banner-typed-text">unique cribs</span> and explore the world.</h2>
+      <h2 id="banner-typed-text" style="display:inline;"></h2>
       <div class="form-group">
         <%= f.input :location %>
       </div>
