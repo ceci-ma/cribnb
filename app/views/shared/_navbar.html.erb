@@ -17,7 +17,8 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://static.wixstatic.com/media/ae0e5a_1e065c211a74414ebd6e8bcac46b4f27~mv2_d_1566_1566_s_2.png/v1/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01/logo-final.webp" %>
+    <%= image_tag "https://res.cloudinary.com/damqmtkwf/image/upload/v1574258011/Screenshot_2019-11-20_at_13.50.46_dec8ej.png" , style: "width: 100px", class: "rounded-circle" %>
+
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,13 +43,11 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "Account", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

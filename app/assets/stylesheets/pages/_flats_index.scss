@@ -10,6 +10,8 @@ body {
   margin-top: 10px;
   padding: 30px;
   text-align: center;
+  outline: 2px solid black;
+  outline-offset: -20px;
 }
 
 .head h1 {
@@ -58,6 +60,8 @@ box-shadow: 0 0px 0 0 green;
   justify-content: space-between;
   position: relative;
   padding: 20px;
+  outline: 1px solid black;
+  outline-offset: -5px;
 }
 
 .card_info h4 {
