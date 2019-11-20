@@ -1,4 +1,4 @@
-import { loadDynamicBannerText } from './banner'
+import { loadDynamicBannerText } from './components/banner'
 import "bootstrap";
 
 loadDynamicBannerText();
