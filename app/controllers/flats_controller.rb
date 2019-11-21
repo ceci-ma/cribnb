@@ -3,7 +3,27 @@ class FlatsController < ApplicationController
   before_action :find_flat, only: [:show, :edit, :update, :destroy]
 
   def index
-    @flats = Flat.all
+    if params[:search].present?
+      @flats = Flat.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
+      @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
+      @markers = @geo_flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
+        }
+      end
+    else
+      @flats = Flat.all
+      @geo_flats = Flat.geocoded
+      @markers = @geo_flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
+        }
+      end
+    end
   end
 
   def show
