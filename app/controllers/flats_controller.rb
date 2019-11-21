@@ -9,9 +9,9 @@ class FlatsController < ApplicationController
     end
 
     # Added for geocoding
-    @flats = Flat.geocoded #returns flats with coordinates
+    @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests]) #returns flats with coordinates
 
-    @markers = @flats.map do |flat|
+    @markers = @geo_flats.map do |flat|
       {
         lat: flat.latitude,
         lng: flat.longitude
