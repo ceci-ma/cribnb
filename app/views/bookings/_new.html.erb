@@ -4,19 +4,16 @@
     <%= simple_form_for [flat, booking] do |f| %>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <%= f.input :start_date, as: :date, label: "Check-in"%>
+          <%= f.input :start_date, as: :string,label: "Check-in", input_html: { id: "range_start" } %>
         </div>
         <div class="form-group col-md-6">
-          <%= f.input :end_date, as: :date, label: "Check-out" %>
+          <%= f.input :end_date, as: :string, label: "Check-out", input_html: { id: "range_end" }  %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.input :guest, collection: ["1", "2", "3", "4", "5"], label: "Guests" %>
+        <%= f.input :guest, as: :integer, label: "Guests" %>
       </div>
       <div class="d-flex justify-content-between border-bottom ">
-<!--         <% nights = 5 %>
-        <p>£<%= @flat.price %> x <%= nights %> nights </p>
-        <p>£ <%= @new_price = @flat.price * nights %></p> -->
         <p><strong>£<%= @flat.price %></strong> per night</p>
       </div>
         <%= f.button :submit, class: "btn btn-ghost" %>

@@ -1,3 +1,7 @@
+
+import "../plugins/flatpickr"
+import { loadDynamicBannerText } from './components/banner'
+
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
