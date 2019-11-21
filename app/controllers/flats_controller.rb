@@ -4,20 +4,24 @@ class FlatsController < ApplicationController
   def index
     if params[:search].present?
       @flats = Flat.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
+      @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
+      @markers = @geo_flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
     else
       @flats = Flat.all
+      @geo_flats = Flat.geocoded
+      @markers = @geo_flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
     end
-
     # Added for geocoding
-    @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests]) #returns flats with coordinates
-
-    @markers = @geo_flats.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
-    end
-
   end
 
   def show
