@@ -2,7 +2,7 @@ class Flat < ApplicationRecord
   has_many_attached :photos
   has_many :bookings
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true
