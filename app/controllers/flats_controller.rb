@@ -15,8 +15,7 @@ class FlatsController < ApplicationController
     @markers = @geo_flats.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude,
-
+        lng: flat.longitude
       }
     end
 
