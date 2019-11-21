@@ -6,7 +6,7 @@
         <%= f.input :location %>
       </div>
       <div class="form-group">
-        <%= f.input :guests, collection: [1,2,3,4,5] %>
+        <%= f.input :guests, as: :integer %>
       </div>
       <%= f.submit "Search cribs", class: "btn btn-ghost" %>
     <% end %>

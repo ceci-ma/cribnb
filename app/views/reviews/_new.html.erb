@@ -1,0 +1,14 @@
+<div class="m-3">
+  <div class="form-review-container m-3 p-4">
+    <h3>Leave a Review</h3>
+    <%= simple_form_for [flat, review] do |f| %>
+      <div class="form-group">
+          <%= f.input :content, label: "How was your stay?"%>
+      </div>
+      <div class="form-group">
+        <%= f.input :rating, as: :integer, label: "Rate your stay" %>
+      </div>
+        <%= f.button :submit, "Leave Review", class: "btn btn-ghost" %>
+    <% end %>
+  </div>
+</div>
