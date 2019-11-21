@@ -1,4 +1,5 @@
 
+
 <div class="booking-container container">
 
 
@@ -18,7 +19,7 @@
   <div class="card-product m-3">
     <%= cl_image_tag(booking.flat.photos.first.key)%>
     <div class="card-product-infos">
-      <h2><%= booking.flat.title %></h2>
+      <h2><%= link_to booking.flat.title, booking_path(booking), style: "color:black;" %></h2>
       <p><%= booking.flat.location %></p>
       <div class="dates d-flex">
         <p><%= booking.start_date %> --</p>

@@ -38,3 +38,8 @@
 .hidden{
   display: none;
 }
+
+.pic img {
+  width: inherit;
+  object-fit: cover;
+}
