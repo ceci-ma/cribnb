@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
 
   def index
     if params[:search].present?
-      @flats = Flat.where("location ILIKE ?", "%#{params[:search][:location]}%")
+      @flats = Flat.near("#{params[:search][:location]}", 10)
     else
       @flats = Flat.all
     end
