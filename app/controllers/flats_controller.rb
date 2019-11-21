@@ -7,6 +7,17 @@ class FlatsController < ApplicationController
     else
       @flats = Flat.all
     end
+
+    # Added for geocoding
+    @flats = Flat.geocoded #returns flats with coordinates
+
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
+
   end
 
   def show
