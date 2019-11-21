@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 2019_11_21_140947) do
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.integer "price"
+    t.string "price"
     t.bigint "flat_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "guest"
+    t.string "guest"
     t.boolean "confirmed", default: false
     t.index ["flat_id"], name: "index_bookings_on_flat_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
