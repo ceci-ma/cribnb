@@ -1,27 +1,12 @@
 class FlatsController < ApplicationController
+
   before_action :find_flat, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search].present?
-      @flats = Flat.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
-    else
-      @flats = Flat.all
-    end
-
-    # Added for geocoding
-    @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests]) #returns flats with coordinates
-
-    @markers = @geo_flats.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
-    end
-
+    @flats = Flat.all
   end
 
   def show
-    @booking = Booking.new
   end
 
   def new
@@ -30,7 +15,6 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
-    @flat.user = current_user
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -50,8 +34,7 @@ class FlatsController < ApplicationController
   end
 
   def destroy
-    # console.log("abc")
-    @flat.destroy
+    @flat.delete
     redirect_to flats_path
   end
 
@@ -62,10 +45,9 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :location, :price, :guests, :bedrooms, photos: [])
+    params.require(:flat).permit(:title, :description, :location, :price, photos: [])
   end
 end
-
 
 
 
