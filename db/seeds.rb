@@ -32,7 +32,7 @@ mountain.photos.attach(io: url3, filename: 'mountain.jpg', content_type: 'image/
 mountain.save
 
 url4 = URI.open('https://www.southfrancevillas.com/images/2017/4-luxury-french-riviera-villa.jpg')
-frenchvilla = Flat.create!(title:"Luxury villa in France", location: "France", description: "This family friendly villa adorned wth sleek, modern style will give you a unique experience for your stay at Bandung.", price: 180, user: bruno)
+frenchvilla = Flat.create!(title:"Luxury villa in France", location: "France", description: "This family friendly villa adorned wth sleek, modern style will give you a unique experience for your stay at Bandung.", price: 180, user: bruno, guest: 8, bedrooms: 4)
 frenchvilla.photos.attach(io: url4, filename: 'frenchvilla.jpg', content_type: 'image/jpg')
 frenchvilla.save
 

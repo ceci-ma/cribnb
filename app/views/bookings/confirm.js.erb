@@ -1,4 +1,5 @@
-import swal from 'sweetalert';
+a = document.querySelector("#confirmed-status")
+a.innerHTML = "true"
 
 const initSweetalert = (selector, options = {}) => {
   const swalButton = document.querySelector(selector);
@@ -15,8 +16,6 @@ initSweetalert('#sweet-alert-demo', {
   icon: "success"
 });
 
-// const
-// const a = document.querySelector("#sweet-alert-demo");
-// a.addEventListener("click", (event) => {
-//   booking.
-// });
+
+document.querySelector(".booking-container").classList.add('hidden')
+document.querySelector(".booking-review-container").classList.remove('hidden')
