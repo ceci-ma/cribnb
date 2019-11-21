@@ -1,4 +1,4 @@
-// import Typed from 'typed.js';
+import Typed from 'typed.js';
 
 
 const loadDynamicBannerText = () => {
@@ -11,4 +11,4 @@ const loadDynamicBannerText = () => {
 }
 
 
-// export { loadDynamicBannerText };
+export { loadDynamicBannerText };
