@@ -3,18 +3,20 @@ class FlatsController < ApplicationController
 
   def index
     if params[:search].present?
-      @flats = Flat.where("location ILIKE ?", "%#{params[:search][:location]}%")
+      # @flats = Flat.where("location ILIKE ?", "%#{params[:search][:location]}%")
+      @flats = Flat.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
     else
       @flats = Flat.all
     end
 
     # Added for geocoding
-    @flats = Flat.geocoded #returns flats with coordinates
+    @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests]) #returns flats with coordinates
 
-    @markers = @flats.map do |flat|
+    @markers = @geo_flats.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude
+        lng: flat.longitude,
+
       }
     end
 
@@ -62,7 +64,8 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :location, :price, photos: [])
+    # params.require(:flat).permit(:title, :description, :location, :price, photos: [])
+    params.require(:flat).permit(:title, :description, :location, :price, :guests, :bedrooms, photos: [])
   end
 end
 
