@@ -1,4 +1,5 @@
 class FlatsController < ApplicationController
+
   before_action :find_flat, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -26,7 +27,6 @@ class FlatsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
   end
 
   def new
@@ -35,7 +35,6 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
-    @flat.user = current_user
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -55,8 +54,7 @@ class FlatsController < ApplicationController
   end
 
   def destroy
-    # console.log("abc")
-    @flat.destroy
+    @flat.delete
     redirect_to flats_path
   end
 
@@ -67,10 +65,9 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :location, :price, :guests, :bedrooms, photos: [])
+    params.require(:flat).permit(:title, :description, :location, :price, photos: [])
   end
 end
-
 
 
 
