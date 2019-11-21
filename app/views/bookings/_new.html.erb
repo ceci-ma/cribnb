@@ -4,10 +4,10 @@
     <%= simple_form_for [flat, booking] do |f| %>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <%= f.input :start_date, as: :date, label: "Check-in"%>
+          <%= f.input :start_date, as: :string,label: "Check-in", input_html: { id: "range_start" } %>
         </div>
         <div class="form-group col-md-6">
-          <%= f.input :end_date, as: :date, label: "Check-out" %>
+          <%= f.input :end_date, as: :string, label: "Check-out", input_html: { id: "range_end" }  %>
         </div>
       </div>
       <div class="form-group">

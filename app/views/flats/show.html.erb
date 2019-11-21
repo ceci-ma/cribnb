@@ -40,7 +40,7 @@
     <h1> <%= @flat.title %></h1>
     <p><%= @flat.location %></p>
     <div class="main-info">
-      <p>2 guests | 1 bedroom | 1 bed | 1 bathroom </p>
+      <p> <%= @flat.guests %> guests | <%= @flat.bedrooms %> bedrooms </p>
       <div class="home-info border-bottom border-top">
         <p><%= @flat.description %></p>
       </div>
@@ -49,6 +49,7 @@
   <div> <%= render "bookings/new", flat: @flat, booking: @booking %></div>
 </div>
 
- <%#= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
- <%#= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
-<%#= link_to 'Back', root_path, class: "btn btn-primary" %>
+
+ <%= link_to 'Edit Flat', edit_flat_path(@flat),class: " btn btn-primary" %>
+ <%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "m-3 btn btn-primary" %>
+<%= link_to 'Back', root_path, class: "btn btn-primary" %>
