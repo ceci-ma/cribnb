@@ -1,0 +1,20 @@
+
+ <% if @user.avatar.attached? %>
+      <%= cl_image_tag(@user.avatar.key, style: "width: 400px", class: "rounded-circle") %>
+    <% else %>
+      <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 400px", class: "rounded-circle" %>
+<% end %>
+
+</br>
+
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+<%= @user.dob %>
+
+
+<%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :upload_profile_picture, as: :file, input_html: {multiple: false} %>
+  </div>
+<% end %>
+
