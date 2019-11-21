@@ -17,10 +17,10 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
+
     <%= image_tag "https://res.cloudinary.com/damqmtkwf/image/upload/v1574258011/Screenshot_2019-11-20_at_13.50.46_dec8ej.png" , style: "width: 100px", class: "rounded-circle" %>
 
-    <% end %>
-
+<% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -48,7 +48,10 @@
         <li class="nav-item dropdown">
           <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile",  profile_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           </div>
         </li>
         <!-- Nav if the user is not signed in -->
