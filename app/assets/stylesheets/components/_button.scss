@@ -17,13 +17,14 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: black;
+  background: #1BBC9A;
   transition: background 0.3s ease;
   font-weight: bold;
+  width: 100%;
 }
 
 .btn-flat:hover {
-  background: black;
+  background: #18a688;
   color: white;
 }
 
