@@ -2,7 +2,7 @@ class Flat < ApplicationRecord
   has_many_attached :photos
   has_many :bookings
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true
@@ -13,5 +13,4 @@ class Flat < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-
 end

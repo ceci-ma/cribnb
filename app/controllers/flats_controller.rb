@@ -3,7 +3,6 @@ class FlatsController < ApplicationController
 
   def index
     if params[:search].present?
-      # @flats = Flat.where("location ILIKE ?", "%#{params[:search][:location]}%")
       @flats = Flat.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
     else
       @flats = Flat.all
@@ -63,7 +62,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    # params.require(:flat).permit(:title, :description, :location, :price, photos: [])
     params.require(:flat).permit(:title, :description, :location, :price, :guests, :bedrooms, photos: [])
   end
 end

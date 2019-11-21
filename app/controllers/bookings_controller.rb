@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:show]
+  before_action :find_booking, only: [:show, :confirm]
 
   def index
     @bookings = Booking.all
@@ -29,6 +29,13 @@ class BookingsController < ApplicationController
       redirect_to booking_path(@booking)
     else
       render :new
+    end
+  end
+
+  def confirm
+    @booking.update(confirmed: true)
+    respond_to do |format|
+      format.js
     end
   end
 

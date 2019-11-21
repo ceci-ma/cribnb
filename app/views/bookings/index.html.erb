@@ -1,6 +1,54 @@
-<h1>All bookings</h1>
-<% @bookings.each do |booking| %>
-<p><%= booking.start_date %></p>
-<p><%= booking.end_date %></p>
-<p><%= booking.price %></p>
+
+<div class="booking-container container">
+
+
+<% @future_trips = Booking.where("end_date > ?", Date.today)%>
+<% @past_trips = Booking.where("end_date < ?", Date.today) %>
+<!-- Client.where("orders_count = ?", params[:orders]) -->
+
+<% if @future_trips.empty? && @past_trips.empty? %>
+  <h2 class="my-3">Upcoming trips</h2>
+  <p class="my-3"> You have no upcoming trips. Start exploring ideas for your next trip.</p>
+  <%= link_to "Explore Cribnb", flats_path, class: "btn btn-flat", style: "width:20%; height:43px" %>
+<% end %>
+
+<% unless @future_trips.empty? %>
+  <h2 class="m-3">Upcoming trips</h2>
+  <% @future_trips.each do |booking| %>
+  <div class="card-product m-3">
+    <%= cl_image_tag(booking.flat.photos.first.key)%>
+    <div class="card-product-infos">
+      <h2><%= booking.flat.title %></h2>
+      <p><%= booking.flat.location %></p>
+      <div class="dates d-flex">
+        <p><%= booking.start_date %> --</p>
+        <p>-- <%= booking.end_date %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+<% unless @past_trips.empty?  %>
+  <h2>Past trips</h2>
+  <% @past_trips.each do |booking| %>
+  <div class="card-product m-3">
+    <%= cl_image_tag(booking.flat.photos.first.key)%>
+    <div class="card-product-infos d-flex justify-content-between">
+      <div>
+        <h2><%= booking.flat.title %></h2>
+        <p><%= booking.flat.location %></p>
+        <div class="dates d-flex">
+          <p><%= booking.start_date %> --</p>
+          <p>-- <%= booking.end_date %></p>
+        </div>
+
+      </div>
+      <div class="reviews align-self-center">
+        <%= link_to "Leave a Review!", booking_path(booking), class: "btn btn-flat", style: "width:120%; height:43px" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 <% end %>
