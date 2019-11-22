@@ -19,7 +19,7 @@
   </div>
   <div class="card-trip-infos">
     <div>
-      <h2><%= flat.title %></h2>
+      <h2><%= link_to flat.title, flat_path(flat), style:"color:black;" %></h2>
       <p><%= flat.location %></p>
       <p class="card-trip-pricing"> <i class="fas fa-star" style="color: #1BBC9A;"></i> <%=  flat.reviews.map {|review| review.rating}.sum /  flat.reviews.count.to_f unless flat.reviews.empty? %> (<%= flat.reviews.count  %>)</p>
     </div>

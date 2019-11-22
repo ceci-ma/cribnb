@@ -13,29 +13,29 @@
       </div>
       <div class="container " style="height: 200px">
         <br>
-        <p><strong>Name: </strong> <%= @booking.flat.user.first_name %></p>
-        <p><strong>Last Name:</strong> <%= @booking.flat.user.last_name %></p>
-        <p><strong>Start Date:</strong> <%= @booking.start_date %> </p>
-        <p><strong>End Date:</strong> <%= @booking.end_date %> </p>
-        <p><i class="fas fa-users"></i><span><strong></strong> x <%= @booking.guest %></span></p>
-        <p><strong>Confirmed Status:</strong> <span id="confirmed-status"><%= @booking.confirmed %></span> </p>
+        <p><strong style="color: #1BBC9A;">Name: </strong> <%= @booking.flat.user.first_name %></p>
+        <p><strong style="color: #1BBC9A">Last Name:</strong> <%= @booking.flat.user.last_name %></p>
+        <p><strong style="color: #1BBC9A">Start Date:</strong> <%= @booking.start_date %> </p>
+        <p><strong style="color: #1BBC9A">End Date:</strong> <%= @booking.end_date %> </p>
+        <p><i style="color: #1BBC9A;"class="fas fa-users"></i><span><strong></strong> x <%= @booking.guest %></span></p>
+        <p><strong style="color: #1BBC9A">Confirmed Status:</strong> <span id="confirmed-status"><%= @booking.confirmed %></span> </p>
       </div>
     </div>
 
     <!-- Photo of the flat -->
     <div class="details2 col-md-6  border-left ">
-      <div class="pic container border-bottom d-flex align-items-center" style="height: 230px">
+      <div class="pic container  d-flex align-items-center" style="height: 230px">
         <%= cl_image_tag @booking.flat.photos.first.key, height: 200%>
       </div>
 
       <% if @current_date < @end_booking_date %>
         <%# Put the container with the booking price %>
         <!-- Booking container -->
-        <div class="container booking-container border" style="height: 150px width=500px">
+        <div class="container booking-container border pb-3" style="height: 150px width=500px">
           <div class="">
             <div class=" my-3 p-3 border">
               <% if @booking.confirmed == false  %>
-                  <%= link_to "Confirm and Pay", confirm_path(id:@booking.id), remote: true, id: 'sweet-alert-demo', class: "border btn btn-dark mb-3 w-100" %>
+                  <%= link_to "Confirm and Pay", confirm_path(id:@booking.id), remote: true, id: 'sweet-alert-demo', class: "border btn btn-flat mb-3 w-100" %>
               <% else %>
               <% end %>
 
@@ -55,6 +55,7 @@
               </div>
             </div>
           </div>
+          <%= link_to 'View Your Bookings', bookings_path, class: "btn btn-ghost" %>
           </div>
 
       <% elsif @current_date >= @end_booking_date %>

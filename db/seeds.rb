@@ -65,6 +65,7 @@ Booking.create!(user: lucas, flat: palace, start_date: Date.new(2018,5,2), end_d
 Booking.create!(user: molly, flat: brixton, start_date: Date.new(2019,3,15), end_date: Date.new(2019,3,20), guest: 2, price: 750)
 Booking.create!(user: cecilia, flat: treehouse, start_date: Date.new(2018,8,2), end_date: Date.new(2018,8,16), guest: 2, price: 434)
 
+
 Review.create!(flat: shoreditch, content: "So clean, amazing place!!", rating: 5)
 Review.create!(flat: shoreditch, content: "Great location but quite noisy", rating: 3)
 Review.create!(flat: shoreditch, content: "Had an awful time", rating: 1)
