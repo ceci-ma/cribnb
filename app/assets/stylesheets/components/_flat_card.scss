@@ -12,12 +12,14 @@
 .carousel-inner{
       height: 100%;
     width: 100%;
+        border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   // border-radius: 4px;
 }
 
 .flat-card img {
-  height: 200px;
-  width: 270px;
+  height: 100%;
+  width: 100%;
   border-radius: 5px;
   object-fit: cover;
   // border-radius: 4px;
@@ -58,6 +60,7 @@
 .flat-card .flat-card-infos {
   padding: 16px;
   width: 75%;
+  min-width: 75%;
 }
 
 .flats-container {
