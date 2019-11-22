@@ -1,5 +1,9 @@
 <div class="container mt-3" style="padding-top: 20px;">
 
+  <% @current_date = Date.today %>
+  <!-- To review -->
+  <% @end_booking_date = @booking.end_date %>
+
   <div class="row">
 
     <div class="details col-md-6 " style="height: 500px" >
@@ -18,36 +22,56 @@
       </div>
     </div>
 
+    <!-- Photo of the flat -->
     <div class="details2 col-md-6  border-left ">
       <div class="pic container border-bottom d-flex align-items-center" style="height: 230px">
         <%= cl_image_tag @booking.flat.photos.first.key, height: 200%>
       </div>
-      <div class="container booking-container" style="height: 150px width=500px">
-        <div class="">
-          <div class=" my-3 p-3 border">
-            <%= link_to "Confirm and Pay", confirm_path(id:@booking.id), remote: true, id: 'sweet-alert-demo', class: "border btn btn-dark mb-3 w-100" %>
-            <div class="d-flex justify-content-between pb-3">
-              <p><strong>Cost</strong></p>
-              <p>£<%= @booking.flat.price %> x <%= (@booking.end_date - @booking.start_date).to_i %> nights</p>
-            </div>
 
-            <div class="d-flex justify-content-between border-bottom">
-              <p><strong>Service Fee</strong></p>
-              <p>Free</p>
-            </div>
+      <% if @current_date < @end_booking_date %>
+        <%# Put the container with the booking price %>
+        <!-- Booking container -->
+        <div class="container booking-container border" style="height: 150px width=500px">
+          <div class="">
+            <div class=" my-3 p-3 border">
+              <% if @booking.confirmed == false  %>
+                  <%= link_to "Confirm and Pay", confirm_path(id:@booking.id), remote: true, id: 'sweet-alert-demo', class: "border btn btn-dark mb-3 w-100" %>
+              <% else %>
+              <% end %>
 
-            <div class="d-flex justify-content-between pt-3">
-              <p><strong>Total (GBP)</strong></p>
-              <p><strong>£<%= @booking.price %></strong></p>
+              <div class="d-flex justify-content-between pb-3">
+                <p><strong>Cost</strong></p>
+                <p>£<%= @booking.flat.price %> x <%= (@booking.end_date - @booking.start_date).to_i %> nights</p>
+              </div>
+
+              <div class="d-flex justify-content-between border-bottom">
+                <p><strong>Service Fee</strong></p>
+                <p>Free</p>
+              </div>
+
+              <div class="d-flex justify-content-between pt-3">
+                <p><strong>Total (GBP)</strong></p>
+                <p><strong>£<%= @booking.price %></strong></p>
+              </div>
             </div>
           </div>
+          </div>
+
+      <% elsif @current_date >= @end_booking_date %>
+        <%# Display review form  %>
+        <!-- Review form partial  -->
+        <div class="row justify-content-center booking-review-container">
+          <div class="col-md-12 text-center">
+            <div> <%= render "reviews/new", flat: @flat, review: @review %></div>
+          </div>
         </div>
-      </div>
-      <div class="row justify-content-center booking-review-container hidden">
-        <div class="col-md-12 text-center">
-          <div> <%= render "reviews/new", flat: @flat, review: @review %></div>
-        </div>
-      </div>
+      <% end  %>
+
+
+
+
+
+
     </div>
   </div>
 </div>
