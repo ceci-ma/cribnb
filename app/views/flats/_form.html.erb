@@ -1,39 +1,52 @@
-<%= simple_form_for(@flat) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-  </div>
+  <div class="form-container-flat p-5 m-3">
 
-  <div class="form-inputs">
-    <%= f.input :description %>
-  </div>
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :location %>
-  </div>
+      <h1>Rent Your Crib </h1>
+      <p class="p-1" style="color: #1BBC9A;"> Submit your details below</p>
+      <br>
+      <div class="form-inputs">
+        <%= f.input :title %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :price %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :description %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :guests %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :location %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :bedrooms %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :price %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :photos, as: :file, input_html: {multiple: true} %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :guests %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-ghost" %>
+      <div class="form-inputs">
+        <%= f.input :bedrooms %>
+      </div>
+
+      <div class="form-inputs">
+        <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+      </div>
+
+      <br>
+      <div class="form-actions">
+        <%= f.button :submit,  "Submit Your Crib", class: "btn btn-flat" %>
+      </div>
+      <br>
+
+      <div class="form-actions">
+        <%= link_to 'Back', root_path, class: "btn btn-ghost" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
 
 
 
