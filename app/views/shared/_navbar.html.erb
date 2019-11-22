@@ -59,9 +59,10 @@
                    # add: data-toggle="dropdown" aria-haspopup="true" aria-expanded="false
                     ) %>
             <% else %>
-              <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 400px", class: "rounded-circle" %>
+              <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png",
+                style: "width: 50px",
+                class: "avatar rounded-circle dropdown-toggle" %>
             <% end %>
-            <!-- <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" /> -->
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Profile",  edit_user_registration_path(current_user), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
