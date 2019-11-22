@@ -1,10 +1,19 @@
 .profile-title {
-  font-size: 100px;
-  color: red;
+  font-size: 50px;
+  color: #1BBC9A;
 }
 
 .profile-body {
-  align-items: center;
+  text-align: center;
 }
 
+.profile-rounded-circle {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
+.profile-info {
+  display: inline-table;
+}
