@@ -1,7 +1,7 @@
 <div class="booking-info m-3">
   <div class="form-container m-3 p-4">
     <h3>Book it now</h3>
-    <%= simple_form_for [flat, booking] do |f| %>
+    <%= simple_form_for [@flat, @booking] do |f| %>
       <div class="form-row">
         <div class="form-group col-md-6">
           <%= f.input :start_date, as: :string,label: "Check-in", input_html: { id: "range_start" } %>
