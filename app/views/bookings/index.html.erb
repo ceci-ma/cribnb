@@ -14,7 +14,7 @@
 <% end %>
 
 <% unless @future_trips.empty? %>
-  <h2 class="m-3">Upcoming trips</h2>
+  <h2 class="m-3 mb-4">Upcoming Trips</h2>
   <% @future_trips.each do |booking| %>
   <div class="card-product m-3">
     <%= cl_image_tag(booking.flat.photos.first.key)%>
@@ -31,13 +31,13 @@
 <% end %>
 
 <% unless @past_trips.empty?  %>
-  <h2>Past trips</h2>
+  <h2 class="m-3 mt-5 mb-4">Past Trips</h2>
   <% @past_trips.each do |booking| %>
   <div class="card-product m-3">
     <%= cl_image_tag(booking.flat.photos.first.key)%>
     <div class="card-product-infos d-flex justify-content-between">
       <div>
-        <h2><%= booking.flat.title %></h2>
+        <h2><%= link_to booking.flat.title, booking_path(booking), style: "color:black;" %></h2>
         <p><%= booking.flat.location %></p>
         <div class="dates d-flex">
           <p><%= booking.start_date %> --</p>
