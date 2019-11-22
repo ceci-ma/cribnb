@@ -11,7 +11,7 @@ class FlatsController < ApplicationController
           lat: flat.latitude,
           lng: flat.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
-          image_url: helpers.asset_url('https://lh3.googleusercontent.com/3kJvHS_h2h8_knIlipZFTFrWKLpntzZzaunGVIXRlCnOLKR_bo7XOv4On2sLu9TC5M-_JxTSlCOfGYsepGa4aPdorPrqKf85UgQIywRj0xmIPu1ezv9XYUAyKjfDbo8v-1WCElFJXKDXLT0LYOx_f_rBma4KHxClSwliXkmvuIGaebukvWvFrp4abK86PLGwi5VUGYqjTE0hFYiRK3yDCkgbDJNH-zlD4k7T5Fta2SoeGJENsehKybdZGIhDY9p3zj0uyN9Ji8azxTix2-4KrRttgCNkeZxigH9iC6o2QjF2HxWd2QfM-QzkVr8EGoWz3Blc-A-asnO3yqeKEHJ_hZJwWx3B_pCMYGHHLVTtOYaogK8BSVJpj8K9h9WB1CQIQVndHzFB3yJ3t5TsfYUUrwq5fFm79mxpcQE8-i-mXtwkzNA3f4KghUh9QD8C2iE-EVn73jnDLoR4cXGhractpFqxjwjAUccMY9yW1HOv8jDXIq0T6HouAQBPpyv2wBzs07QQO9ChXWSXCcryZwUgtnCYK3BxmlgZlx_EQqvWMUoqu_5jUA-rpC2omwfWJSHVANqjmhJK4lp8I3xx0bdqAXNixvYDpIyZrdDEiYBvZ2ukvNfTopv8B-Dr98QJqCFqFdaPpjolj5DWAydV3L_g7Y9RoCrUztqh5-EZgD_rFOTkrkL8hlLqH4Ge=s512-no')
+          image_url: helpers.asset_url('../assets/images/marker.png')
 
         }
       end
@@ -23,7 +23,7 @@ class FlatsController < ApplicationController
           lat: flat.latitude,
           lng: flat.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
-          image_url: helpers.asset_url('https://lh3.googleusercontent.com/3kJvHS_h2h8_knIlipZFTFrWKLpntzZzaunGVIXRlCnOLKR_bo7XOv4On2sLu9TC5M-_JxTSlCOfGYsepGa4aPdorPrqKf85UgQIywRj0xmIPu1ezv9XYUAyKjfDbo8v-1WCElFJXKDXLT0LYOx_f_rBma4KHxClSwliXkmvuIGaebukvWvFrp4abK86PLGwi5VUGYqjTE0hFYiRK3yDCkgbDJNH-zlD4k7T5Fta2SoeGJENsehKybdZGIhDY9p3zj0uyN9Ji8azxTix2-4KrRttgCNkeZxigH9iC6o2QjF2HxWd2QfM-QzkVr8EGoWz3Blc-A-asnO3yqeKEHJ_hZJwWx3B_pCMYGHHLVTtOYaogK8BSVJpj8K9h9WB1CQIQVndHzFB3yJ3t5TsfYUUrwq5fFm79mxpcQE8-i-mXtwkzNA3f4KghUh9QD8C2iE-EVn73jnDLoR4cXGhractpFqxjwjAUccMY9yW1HOv8jDXIq0T6HouAQBPpyv2wBzs07QQO9ChXWSXCcryZwUgtnCYK3BxmlgZlx_EQqvWMUoqu_5jUA-rpC2omwfWJSHVANqjmhJK4lp8I3xx0bdqAXNixvYDpIyZrdDEiYBvZ2ukvNfTopv8B-Dr98QJqCFqFdaPpjolj5DWAydV3L_g7Y9RoCrUztqh5-EZgD_rFOTkrkL8hlLqH4Ge=s512-no')
+          image_url: helpers.asset_url('../assets/images/marker.png')
         }
       end
     end
