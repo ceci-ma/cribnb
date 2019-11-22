@@ -56,16 +56,20 @@ brixton = Flat.create!(title:"Attic space in Brixton", location: "24 Beechdale R
 brixton.photos.attach(io: url8, filename: 'brixton.jpg', content_type: 'image/jpg')
 brixton.save
 
+
+
 Booking.create!(user: molly, flat: mountain, start_date: Date.new(2020,5,5), end_date: Date.new(2020,5,10), guest: 3, price: 495)
 Booking.create!(user: cecilia, flat: treehouse, start_date: Date.new(2019,12,1), end_date: Date.new(2019,12,15), guest: 2, price: 434)
-Booking.create!(user: lucas, flat: shoreditch, start_date: Date.new(2019,12,15), end_date: Date.new(2019,12,20), guest: 2, price: 750)
-Booking.create!(user: bruno, flat: palace, start_date: Date.new(2020,1,12), end_date: Date.new(2020,1,20), guest: 4, price: 920)
-Booking.create!(user: lucas, flat: palace, start_date: Date.new(2020,2,14), end_date: Date.new(2020,2,16), guest: 6, price: 230)
-Booking.create!(user: molly, flat: chelsea, start_date: Date.new(2020,4,10), end_date: Date.new(2020,4,15), guest: 6, price: 1500)
-Booking.create!(user: molly, flat: brixton, start_date: Date.new(2020,7,20), end_date: Date.new(2020,7,22), guest: 2, price: 380)
-Booking.create!(user: lucas, flat: clapton, start_date: Date.new(2020,5,2), end_date: Date.new(2020,5,5), guest: 3, price: 300)
+Booking.create!(user: cecilia, flat: chelsea, start_date: Date.new(2019,1,3), end_date: Date.new(2019,1,5), guest: 3, price: 600)
+Booking.create!(user: lucas, flat: palace, start_date: Date.new(2018,5,2), end_date: Date.new(2018,5,5), guest: 3, price: 300)
+Booking.create!(user: molly, flat: brixton, start_date: Date.new(2019,3,15), end_date: Date.new(2019,3,20), guest: 2, price: 750)
+Booking.create!(user: cecilia, flat: treehouse, start_date: Date.new(2018,8,2), end_date: Date.new(2018,8,16), guest: 2, price: 434)
 
-Review.create
 
+Review.create!(flat: shoreditch, content: "So clean, amazing place!!", rating: 5)
+Review.create!(flat: shoreditch, content: "Great location but quite noisy", rating: 3)
+Review.create!(flat: shoreditch, content: "Had an awful time", rating: 1)
+Review.create!(flat: palace, content: "Stunning place!!", rating: 5)
+Review.create!(flat: palace, content: "Too many stairs", rating: 2)
 
 puts "Finished!"
