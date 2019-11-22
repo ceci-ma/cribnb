@@ -4,7 +4,7 @@ class FlatsController < ApplicationController
 
   def index
     if params[:search].present?
-      @flats = Flat.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
+      @flats = Flat.near("#{params[:search][:location]}", 10).where("guests >= ?", params[:search][:guests])
       @geo_flats = Flat.geocoded.near("#{params[:search][:location]}", 10).where(guests: params[:search][:guests])
       @markers = @geo_flats.map do |flat|
         {
@@ -38,7 +38,9 @@ class FlatsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @flat = Flat.new(flat_params)
+    @flat.user = @user
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -69,9 +71,7 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :location, :price, photos: [])
+    params.require(:flat).permit(:title, :description, :location, :guests, :bedrooms, :price, photos: [])
   end
 end
-
-
 
