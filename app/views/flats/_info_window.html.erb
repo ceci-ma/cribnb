@@ -1,6 +1,6 @@
 <div class="card-trip">
   <div class="map-card">
-    <div id="carousel-map-<%= flat.id + 100 %>" class="carousel slide" >
+    <div id="carousel-map-<%= flat.id%>" class="carousel slide" >
     <div class="carousel-inner inner-map">
       <% flat.photos.each_with_index do |photo, index| %>
         <div class="carousel-item item-map <%= "active" if index == 0 %>">
@@ -8,11 +8,11 @@
         </div>
       <% end %>
     </div>
-    <a class="carousel-control-prev" href="#carousel-map-<%= flat.id + 100 %>" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carousel-map-<%= flat.id%>" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carousel-map-<%= flat.id + 100 %>" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carousel-map-<%= flat.id%>" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>

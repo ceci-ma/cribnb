@@ -4,12 +4,16 @@
   padding: 150px 0;
 }
 
-.banner h1 {
+.banner h2 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 30px;
   font-weight: bold;
+}
+
+h2#banner-typed-text {
+  font-size:30px;
 }
 
 .banner p {
@@ -21,7 +25,7 @@
 
 
 .home-banner {
-  background-image: url('https://images.unsplash.com/photo-1469394576569-858815b13427?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2049&q=80');
+  background-image: url('https://images.unsplash.com/photo-1519302959554-a75be0afc82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1662&q=80');
   background-size: cover;
   height: 100vh;
   color: #eee;
