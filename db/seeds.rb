@@ -17,7 +17,7 @@ cecilia = User.create!(password: "123123", dob: Date.new(1985,7,10), email: "cec
 lucas = User.create!(password: "123123", dob: Date.new(1998,3,18), email: "lucaschanet@gmail.com", first_name: "Lucas", last_name: "Chanet")
 
 url = URI.open('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
-shoreditch = Flat.new(title:"Modern Shoreditch flat", location: "138 kingsland road", description: "Spacious and in the center of the city.", price: 150, user: cecilia, guests: 4, bedrooms: 2)
+shoreditch = Flat.new(title:"Modern Shoreditch flat", location: "138 kingsland road, London", description: "Spacious and in the center of the city.", price: 150, user: cecilia, guests: 4, bedrooms: 2)
 shoreditch.photos.attach(io: url, filename: 'shoreditch.jpg', content_type: 'image/jpg')
 shoreditch.save
 
@@ -42,17 +42,17 @@ palace.photos.attach(io: url5, filename: 'palace.jpg', content_type: 'image/jpg'
 palace.save
 
 url6 = URI.open('https://lid.zoocdn.com/645/430/7b124fab17e4cb33712a43e51f74153e8cc66304.jpg')
-clapton = Flat.create!(title:"Quirky flat near Hackney", location: "34 Mildenhall Road", description: "Full of character with good transport links nearby", price: 100, user: cecilia, guests: 6, bedrooms: 3)
+clapton = Flat.create!(title:"Quirky flat near Hackney", location: "34 Mildenhall Road, London", description: "Full of character with good transport links nearby", price: 100, user: cecilia, guests: 6, bedrooms: 3)
 clapton.photos.attach(io: url6, filename: 'clapton.jpg', content_type: 'image/jpg')
 clapton.save
 
 url7 = URI.open('https://i.dailymail.co.uk/i/pix/2014/01/18/article-0-1AC3AA2500000578-340_634x620.jpg')
-chelsea = Flat.create!(title:"Grand house in Chelsea", location: "10 Kings Road", description: "Walk out to be in the middle of the action on Kings Road.", price: 300, user: cecilia, guests: 7, bedrooms: 3)
+chelsea = Flat.create!(title:"Grand house in Chelsea", location: "10 Kings Road, London", description: "Walk out to be in the middle of the action on Kings Road.", price: 300, user: cecilia, guests: 7, bedrooms: 3)
 chelsea.photos.attach(io: url7, filename: 'chelsea.jpg', content_type: 'image/jpg')
 chelsea.save
 
 url8 = URI.open('https://media.rightmove.co.uk/dir/32k/31836/73805323/31836_29055770_IMG_01_0000_max_656x437.jpg')
-brixton = Flat.create!(title:"Attic space in Brixton", location: "24 Beechdale Road", description: "Quiet location just round the corner from the buzz of Brixton village", price: 190, user: cecilia, guests: 5, bedrooms: 2)
+brixton = Flat.create!(title:"Attic space in Brixton", location: "24 Beechdale Road, London", description: "Quiet location just round the corner from the buzz of Brixton village", price: 190, user: cecilia, guests: 5, bedrooms: 2)
 brixton.photos.attach(io: url8, filename: 'brixton.jpg', content_type: 'image/jpg')
 brixton.save
 
@@ -64,6 +64,8 @@ Booking.create!(user: lucas, flat: palace, start_date: Date.new(2020,2,14), end_
 Booking.create!(user: molly, flat: chelsea, start_date: Date.new(2020,4,10), end_date: Date.new(2020,4,15), guest: 6, price: 1500)
 Booking.create!(user: molly, flat: brixton, start_date: Date.new(2020,7,20), end_date: Date.new(2020,7,22), guest: 2, price: 380)
 Booking.create!(user: lucas, flat: clapton, start_date: Date.new(2020,5,2), end_date: Date.new(2020,5,5), guest: 3, price: 300)
+
+Review.create
 
 
 puts "Finished!"
