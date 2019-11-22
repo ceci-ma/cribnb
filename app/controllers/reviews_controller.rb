@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
     @review.flat = @flat
 
     if @review.save
+      # redirect_to flat_path(@flat)
       redirect_to flat_path(@flat)
     else
       render :new
@@ -35,3 +36,4 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:content, :rating)
   end
 end
+

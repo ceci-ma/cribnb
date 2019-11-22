@@ -35,7 +35,11 @@ class BookingsController < ApplicationController
   def confirm
     @booking.update(confirmed: true)
     respond_to do |format|
+      # format => le data type de la requete
+      # si le data type est JS, et on doit avoir un fichier confirm.js.erb
       format.js
+      # si le data type est HTML, et on doit avoir un fichier confirm.html.erb
+      # format.html
     end
   end
 
