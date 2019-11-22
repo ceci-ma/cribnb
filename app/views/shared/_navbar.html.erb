@@ -11,19 +11,13 @@
             text-decoration: none;
         }
 
-        h1{
-          color: white !important;
-        }
-
       </style>
     <% end %>
 
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-
     <h1 style='font-family: Pacifico; color: #1BBC9A;'>cribnb</h1>
-
 <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,26 +40,13 @@
           <%= link_to "Bookings", bookings_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "Account", "#", class: "nav-link" %>
-        </li>
+
         <li class="nav-item dropdown">
-            <% @user = current_user %>
-            <% if @user.avatar.attached? %>
-              <%= cl_image_tag(@user.avatar.key,
-                  style: "width: 50px",
-                  class: " avatar rounded-circle dropdown-toggle",
-                   # add: data-toggle="dropdown" aria-haspopup="true" aria-expanded="false
-                    ) %>
-            <% else %>
-              <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 400px", class: "rounded-circle" %>
-            <% end %>
-            <!-- <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" /> -->
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src='<%= current_user.avatar.attached? ? cl_image_path(current_user.avatar.key) : "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" %>' />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile",  edit_user_registration_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Profile",  edit_user_registration_path(current_user), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
           </div>
         </li>
         <!-- Nav if the user is not signed in -->
