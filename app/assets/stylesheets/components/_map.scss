@@ -17,3 +17,9 @@
   background-size: contain, cover;
   background-repeat: no-repeat;
 }
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
